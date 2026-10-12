@@ -1,0 +1,127 @@
+* { 
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+} 
+body {
+  font-family: 'Lucida Sans', sans-serif;
+  background-color: #0a0a0a; 
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+} 
+.container { 
+  background: linear-gradient(180deg, 
+  #2f324c 0%,
+  #2f324c 30%, 
+  #c9d5fb 30%,
+  #c9d5fb 100%);      
+      
+  padding: 20px 100px; 
+  width: 70%;
+  max-width: 1200px;
+  
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  grid-template-rows: auto repeat(4, 180px);  
+  gap: 15px; 
+}
+
+.header, 
+.container > p 
+{
+  grid-column: 1 / 5;
+  grid-row: 1;
+  text-align: center;
+  padding: 10px 0;
+}
+.container > p {
+  grid-row: 5;
+}
+
+.left, .right {
+  display: contents; 
+}
+
+.alps {
+  grid-column: 1 / 3; 
+  grid-row: 2 / 4;
+}
+.left .united {
+  grid-column: 1 / 3;
+  grid-row: 4; 
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.right .united {
+  grid-column: 3 / 5;
+  grid-row: 2; 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.zel {
+  grid-column: 3 / 5;
+  grid-row: 3 / 5; 
+}
+
+.alps, .zel, section {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 5/3;
+}
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+h2 {
+  position: absolute;
+  top: 52%;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+
+  /*letter-spacing: -1px;*/
+  transform:scaleY(1.8);
+  transform-origin: bottom;
+  
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+
+
+@media (max-width: 900px) {
+  .container {
+    width: 95%; 
+    padding: 20px; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto; 
+  }
+  .header, 
+  .container > p,
+  .alps,
+  .zel,
+  .left .united,
+  .right .united {
+    grid-column: 1 / -1; /*  1 / -1 ::::Почни з першої лінії і розтягнися до останньої доступної лінії*/
+    grid-row: auto; /* Liberta as linhas fixas antigas */
+  }
+  .left .united,
+  .right .united {
+    grid-template-columns: 1fr; 
+  }
+  .alps, .zel, .left .united img, .right .united img {
+    height: 250px; 
+    border-radius: 8px; 
+  }
+}
+
