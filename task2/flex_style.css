@@ -1,0 +1,154 @@
+* { 
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+} 
+
+body {
+  font-family: 'Lucida Sans', sans-serif;
+  background-color: #0a0a0a; 
+  min-height: 100vh;
+  display: flex;        
+  justify-content: center;
+  align-items: center;
+} 
+
+.container { 
+  background: linear-gradient(180deg, 
+  #2f324c 0%,
+  #2f324c 50%, 
+  #c9d5fb 50%,
+  #c9d5fb 100%);      
+      
+  padding: 20px 100px; 
+  width: 55%;                
+  max-width: 950px;          
+  height: max-content;
+  margin: auto; 
+  
+  display: flex;
+  flex-direction: row;       
+  flex-wrap: wrap;         
+  gap: 15px; 
+}
+
+.header, 
+.container > p {
+  width: 100%;
+  text-align: center;
+}
+
+.header {
+  color: aliceblue;
+  font-size: 26px;
+  font-weight: 700;
+  transform: scaleY(1.6);
+  transform-origin: center;
+  margin: 30px 0;
+  order: 1;                
+}
+
+.header a {
+  color: rgb(248, 42, 5);
+  text-decoration: none;
+}
+
+.left, .right {
+  display: flex;
+  flex-direction: column;  
+  gap: 15px;
+  flex: 1 1 calc(50% - 8px); 
+  min-width: 0;
+}
+
+.left  { order: 2; }
+.right { order: 3; }
+
+.alps, .zel {
+  height: 295px;  /* =2 linhas de 140px + gap */
+  width: 100%;
+}
+
+.left .united, 
+.right .united {
+  display: flex; 
+  flex-direction: row; 
+  gap: 20px; 
+  width: 100%;
+  height: 140px;
+}
+
+.left .united section,
+.right .united section {
+  flex: 1;
+  height: 100%;
+}
+
+.right > .united { order: 1; }
+.right > .zel    { order: 2; }
+
+
+.alps, .zel, section {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: auto; 
+}
+
+img {
+  width: 100%;
+  height: 100%; 
+  display: block;
+  object-fit: cover;
+}
+
+h2 {
+  position: absolute;
+  top: 52%;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  transform: scaleY(1.8);
+  transform-origin: bottom;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.container > p {
+  grid-row: auto;
+  font-style: italic;
+  font-size: 10px;
+  padding-bottom: 20px;
+  order: 4;              
+}
+
+.container > p a {
+  text-decoration: underline;
+  color: #000000;
+}
+.container > p a:hover {
+  color: #000000; 
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 95%; 
+    padding: 20px; 
+    flex-direction: column; 
+  }
+
+  .left, .right {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .left .united,
+  .right .united {
+    flex-direction: column;
+    height: auto; 
+  }
+
+  .alps, .zel, .left .united section, .right .united section {
+    height: 250px; 
+    border-radius: 8px; 
+  }
+}
